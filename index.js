@@ -2,6 +2,9 @@ let todoInput = document.querySelector('.input'),
   todoAddBtn = document.querySelector('.todo_add_btn'),
   todoItems = document.querySelector('.todo_items');
 todoCompleted = document.querySelector('.todo');
+let todoCountAll = document.querySelector('#all'),
+  todoCountFinished = document.querySelector('#finished');
+
 let todos = [];
 
 todoAddBtn.addEventListener('click', () => {
@@ -24,10 +27,12 @@ todoAddBtn.addEventListener('click', () => {
           item.id
         })' >
         ${item.text}
-        <button>Удалить</button>
+        
     </li>`
     )
     .join('');
+
+  todoCountAll.value = todos.length;
 });
 
 function todoFinish(id) {
@@ -47,7 +52,7 @@ function todoFinish(id) {
           item.id
         })' >
       ${item.text}
-      <button>Удалить</button>
+   
   </li>`
     )
     .join('');

@@ -52,11 +52,24 @@ li {
 }
 
 .todo_list {
-    margin-top: 40px;
+    margin-top: 10px;
     font-size: 20px;
     cursor: pointer;
 }
 
 .todo.completed {
     text-decoration: line-through;
+}
+
+.todo_count {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.todo_count input {
+    width: 25px;
+    height: 25px;
+    outline: none;
 }
