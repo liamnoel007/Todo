@@ -19,8 +19,6 @@ todoAddBtn.addEventListener('click', () => {
 
   todoInput.value = '';
 
-  //   console.log(todos);
-
   todoItems.innerHTML = todos
     .map(
       (item) =>
@@ -76,11 +74,9 @@ function todoFinish(id) {
   `
     )
     .join('');
-  //   console.log(todos);
 }
 
 function todoDelete(id) {
-  //   console.log(id);
   const newTodos = todos.filter((todo) => todo.id !== id);
 
   todos = newTodos;
@@ -100,4 +96,6 @@ function todoDelete(id) {
 `
     )
     .join('');
+
+  todoCountAll.value = todos.length;
 }
