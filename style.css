@@ -11,6 +11,8 @@ body {
 
 ul {
     list-style-type: none;
+    overflow: scroll;
+    height: 420px;
 }
 
 li {
@@ -33,7 +35,6 @@ li {
 }
 
 .todo_input {
-    /* border: 1px solid black; */
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -53,6 +54,9 @@ li {
 
 .todo_list {
     margin-top: 10px;
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 6px;
     font-size: 20px;
     cursor: pointer;
 }

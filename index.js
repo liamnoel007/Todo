@@ -45,6 +45,7 @@ function todoFinish(id) {
   });
 
   todos = newTodos;
+
   for (let i = 0; i < todos.length; i++) {
     if (todos[i].isCompleted && todos[i].id == id) {
       numTodoFinished += 1;
