@@ -24,12 +24,14 @@ todoAddBtn.addEventListener('click', () => {
   todoItems.innerHTML = todos
     .map(
       (item) =>
-        `<li class = 'todo ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
+        `
+        <li class = 'todos ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
           item.id
         })' >
         ${item.text}
-        <button>Удалить</button>
-    </li>`
+        
+      <button>Удалить</button>
+  </li>`
     )
     .join('');
 
@@ -59,10 +61,12 @@ function todoFinish(id) {
   todoItems.innerHTML = todos
     .map(
       (item) =>
-        `<li class = 'todo ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
+        `
+        <li class = 'todos ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
           item.id
         })' >
-      ${item.text}
+        ${item.text}
+        
       <button>Удалить</button>
   </li>`
     )
