@@ -7,18 +7,13 @@ let todoCountAll = document.querySelector('#all'),
 
 let todos = [];
 let numTodoFinished = 0;
-let newTodo = {};
 
 todoAddBtn.addEventListener('click', () => {
-  if (todoInput.value == '') {
-    alert('Error');
-  } else {
-    newTodo = {
-      id: Math.random(),
-      text: todoInput.value,
-      isCompleted: false,
-    };
-  }
+  let newTodo = {
+    id: Math.random(),
+    text: todoInput.value,
+    isCompleted: false,
+  };
 
   todos.push(newTodo);
 
