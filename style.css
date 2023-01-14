@@ -12,7 +12,7 @@ body {
 ul {
     list-style-type: none;
     overflow: scroll;
-    height: 420px;
+    height: 410px;
 }
 
 li {
@@ -73,6 +73,7 @@ li {
 }
 
 .todo_count input {
+    margin-top: 5px;
     width: 40px;
     height: 25px;
     outline: none;
