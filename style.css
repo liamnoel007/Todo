@@ -55,7 +55,7 @@ li {
 .todo_list {
     margin-top: 10px;
     padding: 4px;
-    border: 1px solid black;
+    border: 1px solid grey;
     border-radius: 6px;
     font-size: 20px;
     cursor: pointer;
@@ -73,7 +73,7 @@ li {
 }
 
 .todo_count input {
-    width: 25px;
+    width: 40px;
     height: 25px;
     outline: none;
 }
