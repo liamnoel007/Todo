@@ -6,6 +6,7 @@ let todoCountAll = document.querySelector('#all'),
   todoCountFinished = document.querySelector('#finished');
 
 let todos = [];
+let numTodoFinished = 0;
 
 todoAddBtn.addEventListener('click', () => {
   let newTodo = {
@@ -18,7 +19,7 @@ todoAddBtn.addEventListener('click', () => {
 
   todoInput.value = '';
 
-  console.log(todos);
+  //   console.log(todos);
 
   todoItems.innerHTML = todos
     .map(
@@ -27,7 +28,7 @@ todoAddBtn.addEventListener('click', () => {
           item.id
         })' >
         ${item.text}
-        
+        <button>Удалить</button>
     </li>`
     )
     .join('');
@@ -44,6 +45,15 @@ function todoFinish(id) {
   });
 
   todos = newTodos;
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].isCompleted && todos[i].id == id) {
+      numTodoFinished += 1;
+      todoCountFinished.value = numTodoFinished;
+    } else if (todos[i].isCompleted == false && todos[i].id == id) {
+      numTodoFinished -= 1;
+      todoCountFinished.value = numTodoFinished;
+    }
+  }
 
   todoItems.innerHTML = todos
     .map(
@@ -52,10 +62,9 @@ function todoFinish(id) {
           item.id
         })' >
       ${item.text}
-   
+      <button>Удалить</button>
   </li>`
     )
     .join('');
-
-  console.log(todos);
+  //   console.log(todos);
 }
