@@ -25,12 +25,15 @@ todoAddBtn.addEventListener('click', () => {
     .map(
       (item) =>
         `
-        <div><li class = 'todos ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
-          item.id
-        })' >
+        <div><li class = 'todos ${item.isCompleted ? 'completed' : ''}'})' >
           ${item.text} 
-          <button>Удалить</button></div>
-  </li>`
+          <button >
+        
+          </li>
+          <button onclick = 'todoDelete(${item.id})'> Удалить</button>
+          <button onclick = 'todoFinish(${item.id})'>Завершить</button>
+          </div>
+  `
     )
     .join('');
 
@@ -47,27 +50,54 @@ function todoFinish(id) {
 
   todos = newTodos;
 
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].isCompleted && todos[i].id == id) {
-      numTodoFinished += 1;
-      todoCountFinished.value = numTodoFinished;
-    } else if (todos[i].isCompleted == false && todos[i].id == id) {
-      numTodoFinished -= 1;
-      todoCountFinished.value = numTodoFinished;
-    }
-  }
+  //   for (let i = 0; i < todos.length; i++) {
+  //     if (todos[i].isCompleted && todos[i].id == id) {
+  //       numTodoFinished += 1;
+  //       todoCountFinished.value = numTodoFinished;
+  //     } else if (todos[i].isCompleted == false && todos[i].id == id) {
+  //       numTodoFinished -= 1;
+  //       todoCountFinished.value = numTodoFinished;
+  //     }
+  //   }
+
+  todoCountFinished.value = todos.filter((todo) => todo.isCompleted).length;
 
   todoItems.innerHTML = todos
     .map(
       (item) =>
         `
-        <div><li class = 'todos ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
-          item.id
-        })' >
+        <div>
+        <li class = 'todos ${item.isCompleted ? 'completed' : ''}'})' >
           ${item.text} 
-          <button>Удалить</button></div>
-        </li>`
+          </li>
+          <button onclick = 'todoDelete(${item.id})'> Удалить</button>
+          <button onclick = 'todoFinish(${item.id})'>Завершить</button>
+          </div>
+  `
     )
     .join('');
   //   console.log(todos);
+}
+
+function todoDelete(id) {
+  //   console.log(id);
+  const newTodos = todos.filter((todo) => todo.id !== id);
+
+  todos = newTodos;
+
+  todoItems.innerHTML = todos
+    .map(
+      (item) =>
+        `
+      <div><li class = 'todos ${item.isCompleted ? 'completed' : ''}'})' >
+        ${item.text} 
+        <button >
+      
+        </li>
+        <button onclick = 'todoDelete(${item.id})'> Удалить</button>
+        <button onclick = 'todoFinish(${item.id})'>Завершить</button>
+        </div>
+`
+    )
+    .join('');
 }
