@@ -34,10 +34,7 @@ todoAddBtn.addEventListener('click', () => {
           item.id
         })' >
           ${item.text} 
-          <button onclick = 'alert()'>Удалить</button></div>
-        
-        
-      
+          <button>Удалить</button></div>
   </li>`
     )
     .join('');
@@ -73,16 +70,9 @@ function todoFinish(id) {
           item.id
         })' >
           ${item.text} 
-          <button onclick = 'alert()'>Удалить</button></div>
-        
-        
-      
-  </li>`
+          <button>Удалить</button></div>
+        </li>`
     )
     .join('');
   //   console.log(todos);
-}
-
-function alert() {
-  alert('Hello!');
 }
