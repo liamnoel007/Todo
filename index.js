@@ -67,9 +67,13 @@ function todoFinish(id) {
         })' >
         ${item.text}
         
-      <button>Удалить</button>
+      <button onclick = 'alert()'>Удалить</button>
   </li>`
     )
     .join('');
   //   console.log(todos);
+}
+
+function alert() {
+  alert('Hello!');
 }
