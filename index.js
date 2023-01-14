@@ -7,13 +7,18 @@ let todoCountAll = document.querySelector('#all'),
 
 let todos = [];
 let numTodoFinished = 0;
+let newTodo = {};
 
 todoAddBtn.addEventListener('click', () => {
-  let newTodo = {
-    id: Math.random(),
-    text: todoInput.value,
-    isCompleted: false,
-  };
+  if (todoInput.value == '') {
+    alert('Error');
+  } else {
+    newTodo = {
+      id: Math.random(),
+      text: todoInput.value,
+      isCompleted: false,
+    };
+  }
 
   todos.push(newTodo);
 
@@ -25,12 +30,14 @@ todoAddBtn.addEventListener('click', () => {
     .map(
       (item) =>
         `
-        <li class = 'todos ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
+        <div><li class = 'todos ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
           item.id
         })' >
-        ${item.text}
+          ${item.text} 
+          <button onclick = 'alert()'>Удалить</button></div>
         
-      <button>Удалить</button>
+        
+      
   </li>`
     )
     .join('');
@@ -62,12 +69,14 @@ function todoFinish(id) {
     .map(
       (item) =>
         `
-        <li class = 'todos ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
+        <div><li class = 'todos ${item.isCompleted ? 'completed' : ''}'  onclick = 'todoFinish(${
           item.id
         })' >
-        ${item.text}
+          ${item.text} 
+          <button onclick = 'alert()'>Удалить</button></div>
         
-      <button onclick = 'alert()'>Удалить</button>
+        
+      
   </li>`
     )
     .join('');
